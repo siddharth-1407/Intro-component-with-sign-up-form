@@ -1,0 +1,108 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+body{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url(/intro-component-with-signup-form-master/images/bg-intro-mobile.png);
+    background-color: map-get($colors, theme-red );
+    padding: 5.5rem 1.5rem;
+
+    @include for-size(sm){
+        padding: 5.5rem 3.5rem;
+
+    }
+
+    @include for-size(lg){
+        background-image: url(/intro-component-with-signup-form-master/images/bg-intro-desktop.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        align-items: center;
+    }
+    @include for-size(xxl){
+        background-size: cover;
+        padding: 5.5em 8em;
+    }
+
+
+}
+main{
+    display: flex;
+    flex-direction: column;
+    min-height: fit-content;
+    width: 100%;
+
+    @include for-size(lg){
+        flex-direction: row;
+        align-items: center;
+    }
+    @include for-size(xl){
+        max-width: 1150px;
+        min-height: 630px;
+    }
+    @include for-size(xxl){
+        max-width: 1400px;
+        // max-width: 95%;
+        // min-height: 800px;
+    }
+}
+#title-container{
+    padding-bottom: 3.8rem;
+
+    @include for-size(lg){
+        padding-bottom: 0;
+        padding-right: 2em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    @include for-size(xxl){
+        padding-right: 3em;
+    }
+
+}
+#title-container, #form-container{
+    flex-basis: 1 1;
+}
+.column{
+    width: 100%;
+    @include for-size(lg){
+        min-height: 527.367px;
+    }
+
+    @include for-size(xl){
+        min-height: inherit;
+        
+    }
+
+
+    .offer{
+           background-color: map-get($colors, theme-blue );
+           border-radius: 0.5em;
+           box-shadow: $box-shadow;
+
+           @include for-size(xl){
+            padding: 1.3rem 3rem;
+           }
+    }
+}
+
+#form-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+
+    @include for-size(xl){
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    @include for-size(xxl){
+        padding: 0 3em;
+    }
+    
+}
+

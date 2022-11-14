@@ -1,0 +1,108 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+form{
+    display: flex;
+    flex-direction: column;
+    padding: 1.5em;
+    border-radius: 0.5em;
+    background-color: white;
+    box-shadow: $box-shadow;
+
+    @include for-size(xl){
+        padding: 3em 2.5em;
+    }
+    @include for-size(xxl){
+        padding:  3.5em 3em;
+    }
+}
+.form-control{
+    position: relative;
+}
+label{
+    position: relative;
+    width: 100%;
+    display: block;
+    margin-bottom: 1.1em;
+
+    @include for-size(xl){
+        margin-bottom: 1.5em;
+    }
+
+    @include for-size(xxl){
+        margin-bottom: 2em;
+    }
+
+    
+    input{
+        width: 100%;
+        padding: 1rem 2.2rem 1rem 1rem;
+        border-radius: 0.3rem;
+        border: 1px solid map-get($colors, grayish-blue );
+
+
+        @include for-size(xl){
+             padding: 1.1rem 3rem 1.1rem 1.5rem;
+             font-size: 1rem;
+        }
+        @include for-size(xxl){
+            padding: 1.3rem 3rem 1.3rem 1.5rem ;
+        }
+    }
+    
+    input:focus{
+        outline: none;
+        box-sizing: border-box;
+        border: 1px solid map-get($colors, theme-blue);
+    }
+    img{
+        position: absolute;
+        right: 0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        display: none;
+        
+        @include for-size(xl){
+            right: 1rem;
+        }
+    }
+    
+}
+.error-text{
+    position: absolute;
+    bottom: 0rem;
+    right: 0.1rem;
+    // display: none;
+
+    @include for-size(xl){
+        bottom: 0.2em;
+    }
+    @include for-size(xxl){
+        bottom: 0.5em;
+    }
+}
+.error .errorIcon{
+    display: block;
+}
+.error {
+    label {
+        input{
+          border-color: map-get($colors, theme-red );
+          border-width: 2px;
+          
+        }
+    }
+}
+.success .errorIcon{
+    display: none;
+}
+
+.success {
+    label {
+        input{
+          border-color: map-get($colors, theme-green );
+          border-width: 2px;
+          
+        }
+    }
+}
